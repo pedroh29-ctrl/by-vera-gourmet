@@ -115,7 +115,7 @@ const AVISOS_CATEGORIA = {
     "Bolos": {
         titulo: "Informações importantes",
         itens: [
-            { icone: "⏳", texto: "Encomende com <strong>48h de antecedência</strong>." },
+            { icone: "⏳", texto: "Bolos e velas devem ser encomendados com <strong>48h de antecedência</strong>." },
             { icone: "🎂", texto: "Recheios dos bolos estruturados são <strong>combinados com o cliente</strong>." },
             { icone: "🚚", texto: "A <strong>entrega é por conta do cliente</strong> (Uber ou transporte próprio)." }
         ]
