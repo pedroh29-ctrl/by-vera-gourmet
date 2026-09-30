@@ -72,7 +72,7 @@ const CONFIG = {
         {
             categoria: "Morangos",
             nome: "Morango do Amor",
-            descricao: "Delicie-se com o morango do amor: um brigadeiro de Ninho em volta do morango.",
+            descricao: "Delicie-se com o morango do amor.",
             preco: 20.00,
             imagem: "imagens/WhatsApp Image 2026-09-29 at 10.02.12 PM (2).jpeg"
         },
