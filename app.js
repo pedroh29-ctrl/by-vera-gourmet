@@ -86,7 +86,7 @@ const CONFIG = {
         {
             categoria: "Velas Comestíveis",
             nome: "Vela Comestível de Chocolate ao Leite",
-            descricao: "Um delicioso fondue iluminado que pode ser acompanhado por morango, frutas, biscoitos, chocolates e muito mais. Sabor, aconchego e momentos especiais em cada mordida.",
+            descricao: "Um delicioso fondue iluminado que pode ser acompanhado por morango. Sabor, aconchego e momentos especiais em cada mordida.",
             preco: 40.00,
             imagem: "imagens/WhatsApp Image 2026-09-29 at 10.30.30 PM.jpeg"
         },
