@@ -23,7 +23,7 @@ const CONFIG = {
         {
             categoria: "Bolos",
             nome: "Curd de Limão Siciliano",
-            descricao: "Bolo de limão siciliano recheado com ganache de chocolate nobre branco e coberto com um delicioso curd de limão siciliano. Decorado com frutas. Peso 1,8 kg. Serve 12 pessoas. Mediante encomenda 48h.",
+            descricao: "Bolo de limão siciliano recheado com ganache de chocolate nobre branco e coberto com um delicioso curd de limão siciliano. Decorado com frutas. Peso 1,8 kg. Serve 12 pessoas.",
             preco: 120.00,
             imagem: "imagens/WhatsApp Image 2026-09-29 at 8.40.08 PM (1).jpeg"
         },
@@ -44,7 +44,7 @@ const CONFIG = {
         {
             categoria: "Bolos",
             nome: "Bolo Vulcão de Cenoura",
-            descricao: "Deliciosa massa de bolo caseiro de cenoura com cobertura de ganache de chocolate. Serve 16 pessoas. Mediante encomenda 24h.",
+            descricao: "Deliciosa massa de bolo caseiro de cenoura com cobertura de ganache de chocolate. Serve 16 pessoas.",
             preco: 80.00,
             imagem: "imagens/WhatsApp Image 2026-09-29 at 8.40.08 PM.jpeg"
         },
@@ -102,6 +102,11 @@ const CONFIG = {
 };
 // ================================================================
 
+// Avisos exibidos abaixo do título de cada categoria (opcional).
+const AVISOS_CATEGORIA = {
+    "Bolos": "⏳ Os bolos devem ser encomendados com 48h de antecedência."
+};
+
 const $ = (id) => document.getElementById(id);
 
 // Pedido: mapa de "índice do produto" → quantidade.
@@ -137,6 +142,14 @@ function montarCatalogo() {
             .replace(/\s+/g, "-");
         titulo.textContent = cat;
         catalogo.appendChild(titulo);
+
+        // Aviso da categoria (ex: encomenda com antecedência)
+        if (AVISOS_CATEGORIA[cat]) {
+            const aviso = document.createElement("p");
+            aviso.className = "categoria-aviso";
+            aviso.textContent = AVISOS_CATEGORIA[cat];
+            catalogo.appendChild(aviso);
+        }
 
         // Grade de produtos da categoria
         const grade = document.createElement("div");

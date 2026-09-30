@@ -187,6 +187,17 @@ html {
     margin-top: 0;
 }
 
+.categoria-aviso {
+    background: #fff3cd;
+    color: #8a6d3b;
+    border-left: 4px solid #e0b84c;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
 .categoria-grade {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
