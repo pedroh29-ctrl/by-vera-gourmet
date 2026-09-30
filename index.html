@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>By Vera Gourmet — Delícias Artesanais</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="topo" id="inicio">
+        <div class="topo-conteudo">
+            <div class="logo">
+                <img class="logo-img" src="imagens/WhatsApp Image 2026-09-29 at 10.38.03 PM.jpeg"
+                    alt="Logo By Vera Gourmet" onerror="this.outerHTML='<span class=&quot;logo-icone&quot;>🧁</span>'">
+                <div>
+                    <h1 id="nome-loja">By Vera Gourmet</h1>
+                    <p class="slogan">Delícias artesanais feitas com carinho</p>
+                </div>
+            </div>
+            <button id="abrir-carrinho" class="btn-carrinho">
+                🛒 Pedido <span id="contador" class="contador">0</span>
+            </button>
+        </div>
+        <!-- Menu de navegação -->
+        <nav class="menu">
+            <a href="#inicio">Início</a>
+            <a href="#cat-bolos">Bolos</a>
+            <a href="#cat-morangos">Morangos</a>
+            <a href="#cat-velas-comestiveis">Velas</a>
+            <a href="#" id="link-pedido">Pedido</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <h2>Nossas delícias 🍰</h2>
+        <p>Escolha o que quiser, monte seu pedido e finalize pelo WhatsApp.</p>
+    </section>
+
+    <!-- Catálogo -->
+    <main class="conteudo">
+        <div id="catalogo" class="catalogo"></div>
+    </main>
+
+    <!-- Botão flutuante do pedido -->
+    <button id="carrinho-flutuante" class="wpp-flutuante" title="Ver pedido">
+        🛒<span id="contador-flutuante" class="contador-flutuante">0</span>
+    </button>
+
+    <!-- ================= PEDIDO (painel lateral) ================= -->
+    <div id="overlay-carrinho" class="overlay-carrinho oculto"></div>
+    <aside id="painel-carrinho" class="painel-carrinho">
+        <div class="carrinho-cabecalho">
+            <h3>Seu pedido</h3>
+            <button id="fechar-carrinho" class="fechar">✕</button>
+        </div>
+
+        <div id="itens-carrinho" class="itens-carrinho"></div>
+
+        <div class="carrinho-rodape">
+            <label class="obs-label">Observações (opcional)
+                <input type="text" id="observacoes" placeholder="Ex: recheio, data de entrega...">
+            </label>
+            <div class="total-linha">
+                <span>Total:</span>
+                <strong id="total-carrinho">R$ 0,00</strong>
+            </div>
+            <button id="finalizar" class="btn-finalizar">Finalizar pelo WhatsApp</button>
+        </div>
+    </aside>
+
+    <!-- Informações da loja: horário + pagamento -->
+    <section class="infos" id="contato">
+        <div class="info-card horarios">
+            <h2>🕒 Horário de Atendimento</h2>
+            <ul class="lista-horarios">
+                <li><span>Segunda-feira</span> <strong>09h às 23h</strong></li>
+                <li><span>Terça-feira</span> <strong>09h às 23h</strong></li>
+                <li><span>Quarta-feira</span> <strong>09h às 23h</strong></li>
+                <li><span>Quinta-feira</span> <strong>09h às 23h</strong></li>
+                <li><span>Sexta-feira</span> <strong>09h às 23h</strong></li>
+                <li><span>Sábado</span> <strong>09h às 21h</strong></li>
+                <li class="fechado"><span>Domingo</span> <strong>Fechado</strong></li>
+            </ul>
+        </div>
+
+        <div class="info-card pagamentos">
+            <h2>💳 Formas de Pagamento</h2>
+            <ul class="lista-pagamentos">
+                <li>📱 Pix</li>
+                <li>💳 Cartão de crédito (online)</li>
+                <li>💵 Dinheiro na entrega</li>
+            </ul>
+        </div>
+
+        <div class="info-card endereco">
+            <h2>📍 Endereço</h2>
+            <p class="endereco-texto">
+                Rua da Ladeira, 39<br>
+                Bairro Martinica<br>
+                Viamão - RS<br>
+                CEP 94455-020
+            </p>
+            <iframe class="mapa"
+                src="https://www.google.com/maps?q=Rua+da+Ladeira+39+Martinica+Viam%C3%A3o+RS+94455-020&output=embed"
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                title="Localização da By Vera Gourmet no mapa">
+            </iframe>
+            <a class="btn-mapa"
+                href="https://www.google.com/maps/search/?api=1&query=Rua+da+Ladeira+39+Martinica+Viam%C3%A3o+RS+94455-020"
+                target="_blank" rel="noopener">
+                Como chegar 🚗
+            </a>
+        </div>
+    </section>
+
+    <footer class="rodape">
+        <p>By Vera Gourmet · Delícias Artesanais · Pedidos pelo WhatsApp</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

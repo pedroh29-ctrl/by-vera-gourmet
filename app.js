@@ -1,0 +1,275 @@
+/* =======================================================================
+   By Vera Gourmet — catálogo de delícias artesanais com pedido via
+   WhatsApp + Pix.
+
+   👉 COMO TROCAR OS PRODUTOS:
+   Na lista "produtos" abaixo, cada item tem:
+     - nome:      nome do produto
+     - descricao: uma frase curta
+     - preco:     valor (use ponto, ex: 25.90)
+     - imagem:    caminho da foto. Salve a foto na pasta "imagens" e
+                  use "imagens/nome-do-arquivo.jpg"
+                  (nomes sem espaço e sem acento: brigadeiro.jpg)
+
+   Os produtos abaixo são EXEMPLOS — troque pelos da Vera.
+   ======================================================================= */
+
+// ======================= CONFIG DA LOJA =======================
+const CONFIG = {
+    nomeLoja: "By Vera Gourmet",
+    whatsapp: "5551984245442",              // WhatsApp da Vera
+    chavePix: "folhadeoutuno@hotmail.com",  // Pix da Vera
+    produtos: [
+        {
+            categoria: "Bolos",
+            nome: "Curd de Limão Siciliano",
+            descricao: "Bolo de limão siciliano recheado com ganache de chocolate nobre branco e coberto com um delicioso curd de limão siciliano. Decorado com frutas. Peso 1,8 kg. Serve 12 pessoas. Mediante encomenda 48h.",
+            preco: 120.00,
+            imagem: "imagens/WhatsApp Image 2026-09-29 at 8.40.08 PM (1).jpeg"
+        },
+        {
+            categoria: "Bolos",
+            nome: "Bolo de Fubá com Glacê Real",
+            descricao: "Bolo de fubá caseiro coberto com glacê real.",
+            preco: 75.00,
+            imagem: "imagens/WhatsApp Image 2026-09-29 at 8.40.07 PM (1).jpeg"
+        },
+        {
+            categoria: "Bolos",
+            nome: "Bolos Caseiros Simples e Decorados",
+            descricao: "Bolos caseiros de diferentes sabores (a combinar), pintados com renda ou flores em glacê real ou buttercream. Podem levar glacê marmorizado. Vários tamanhos, pesos e estilos. Sob prévia encomenda.",
+            preco: 75.00,
+            imagem: "imagens/WhatsApp Image 2026-09-29 at 8.40.07 PM (3).jpeg"
+        },
+        {
+            categoria: "Bolos",
+            nome: "Bolo Vulcão de Cenoura",
+            descricao: "Deliciosa massa de bolo caseiro de cenoura com cobertura de ganache de chocolate. Serve 16 pessoas. Mediante encomenda 24h.",
+            preco: 80.00,
+            imagem: "imagens/WhatsApp Image 2026-09-29 at 8.40.08 PM.jpeg"
+        },
+        {
+            categoria: "Morangos",
+            nome: "Morango do Dubai",
+            descricao: "Delicioso brigadeiro de pistache com massa kadaif e morango, envolto em chocolate ao leite.",
+            preco: 22.00,
+            imagem: "imagens/WhatsApp Image 2026-09-29 at 10.02.11 PM.jpeg"
+        },
+        {
+            categoria: "Morangos",
+            nome: "Morango Cravejado de Maracujá",
+            descricao: "Morango coberto com brigadeiro de maracujá e, em volta, cristais de caramelo e chocolate.",
+            preco: 20.00,
+            imagem: "imagens/WhatsApp Image 2026-09-29 at 10.02.12 PM.jpeg"
+        },
+        {
+            categoria: "Morangos",
+            nome: "Morango Cravejado de Leite Ninho",
+            descricao: "Morango envolto em um irresistível brigadeiro de Ninho e coberto com cristais de caramelo.",
+            preco: 20.00,
+            imagem: "imagens/WhatsApp Image 2026-09-29 at 10.02.12 PM (1).jpeg"
+        },
+        {
+            categoria: "Morangos",
+            nome: "Morango do Amor",
+            descricao: "Delicie-se com o morango do amor: um brigadeiro de Ninho em volta do morango.",
+            preco: 20.00,
+            imagem: "imagens/WhatsApp Image 2026-09-29 at 10.02.12 PM (2).jpeg"
+        },
+        {
+            categoria: "Morangos",
+            nome: "Surpresa de Uva",
+            descricao: "Delicie-se com a elegante Surpresa de Uva, feita com brigadeiro de chocolate ao leite, em formato de coração.",
+            preco: 19.00,
+            imagem: "imagens/WhatsApp Image 2026-09-29 at 10.02.12 PM (3).jpeg"
+        },
+        {
+            categoria: "Velas Comestíveis",
+            nome: "Vela Comestível de Chocolate ao Leite",
+            descricao: "Vela comestível de chocolate ao leite que acompanha frutas, biscoitos, chocolates e muito mais. Sabor, aconchego e momentos especiais em cada mordida.",
+            preco: 40.00,
+            imagem: "imagens/WhatsApp Image 2026-09-29 at 10.30.30 PM.jpeg"
+        },
+        {
+            categoria: "Velas Comestíveis",
+            nome: "Vela Comestível de Manteiga",
+            descricao: "Vela comestível de manteiga com ervas, servida com pães, torradas, queijos, azeitonas e frios. Mais que uma vela, é uma experiência.",
+            preco: 26.00,
+            imagem: "imagens/WhatsApp Image 2026-09-29 at 10.30.31 PM.jpeg"
+        }
+        // --- Adicione os outros produtos aqui quando tiver os preços ---
+    ]
+};
+// ================================================================
+
+const $ = (id) => document.getElementById(id);
+
+// Pedido: mapa de "índice do produto" → quantidade.
+const carrinho = {};
+
+function formatarPreco(valor) {
+    return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+}
+
+// Monta o catálogo, agrupando os produtos por categoria.
+function montarCatalogo() {
+    const catalogo = $("catalogo");
+    catalogo.innerHTML = "";
+
+    // Agrupa os índices dos produtos por categoria, preservando a ordem.
+    const grupos = {};
+    const ordemCategorias = [];
+    CONFIG.produtos.forEach((p, i) => {
+        const cat = p.categoria || "Outros";
+        if (!grupos[cat]) {
+            grupos[cat] = [];
+            ordemCategorias.push(cat);
+        }
+        grupos[cat].push(i);
+    });
+
+    ordemCategorias.forEach((cat) => {
+        // Título da categoria
+        const titulo = document.createElement("h2");
+        titulo.className = "categoria-titulo";
+        titulo.id = "cat-" + cat.toLowerCase()
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")  // tira acentos
+            .replace(/\s+/g, "-");
+        titulo.textContent = cat;
+        catalogo.appendChild(titulo);
+
+        // Grade de produtos da categoria
+        const grade = document.createElement("div");
+        grade.className = "categoria-grade";
+
+        grupos[cat].forEach((i) => {
+            const p = CONFIG.produtos[i];
+            const card = document.createElement("div");
+            card.className = "produto";
+            card.innerHTML = `
+                <div class="produto-imagem">
+                    <img src="${p.imagem}" alt="${p.nome}" loading="lazy"
+                         onerror="this.src='https://placehold.co/500x400/fce7d6/c2410c?text=Foto+do+produto'">
+                </div>
+                <div class="produto-info">
+                    <span class="produto-nome">${p.nome}</span>
+                    <span class="produto-desc">${p.descricao}</span>
+                    <span class="produto-preco">${formatarPreco(p.preco)}</span>
+                    <button class="btn-add" data-i="${i}">Adicionar ao pedido</button>
+                </div>
+            `;
+            card.querySelector(".btn-add").addEventListener("click", () => adicionar(i));
+            grade.appendChild(card);
+        });
+
+        catalogo.appendChild(grade);
+    });
+}
+
+function adicionar(i) {
+    carrinho[i] = (carrinho[i] || 0) + 1;
+    atualizarCarrinho();
+    abrirCarrinho();
+}
+
+function alterarQtd(i, delta) {
+    carrinho[i] = (carrinho[i] || 0) + delta;
+    if (carrinho[i] <= 0) delete carrinho[i];
+    atualizarCarrinho();
+}
+
+function totalItens() {
+    return Object.values(carrinho).reduce((s, q) => s + q, 0);
+}
+
+function totalValor() {
+    return Object.entries(carrinho).reduce(
+        (s, [i, q]) => s + CONFIG.produtos[i].preco * q, 0);
+}
+
+function atualizarCarrinho() {
+    const qtd = totalItens();
+    $("contador").textContent = qtd;
+    $("contador-flutuante").textContent = qtd;
+
+    const lista = $("itens-carrinho");
+    lista.innerHTML = "";
+
+    if (qtd === 0) {
+        lista.innerHTML = "<p class='carrinho-vazio'>Seu pedido está vazio.<br>Escolha suas delícias. 🍰</p>";
+        $("finalizar").disabled = true;
+    } else {
+        $("finalizar").disabled = false;
+        Object.entries(carrinho).forEach(([i, q]) => {
+            const p = CONFIG.produtos[i];
+            const item = document.createElement("div");
+            item.className = "item-carrinho";
+            item.innerHTML = `
+                <img src="${p.imagem}" alt="${p.nome}"
+                     onerror="this.src='https://placehold.co/100x100/fce7d6/c2410c?text=Foto'">
+                <div class="item-dados">
+                    <span class="item-nome">${p.nome}</span>
+                    <span class="item-preco">${formatarPreco(p.preco)}</span>
+                </div>
+                <div class="item-qtd">
+                    <button class="qtd-btn" data-i="${i}" data-d="-1">−</button>
+                    <span>${q}</span>
+                    <button class="qtd-btn" data-i="${i}" data-d="1">+</button>
+                </div>
+            `;
+            item.querySelectorAll(".qtd-btn").forEach((b) => {
+                b.addEventListener("click", () => alterarQtd(b.dataset.i, Number(b.dataset.d)));
+            });
+            lista.appendChild(item);
+        });
+    }
+
+    $("total-carrinho").textContent = formatarPreco(totalValor());
+}
+
+function abrirCarrinho() {
+    $("painel-carrinho").classList.add("aberto");
+    $("overlay-carrinho").classList.remove("oculto");
+}
+function fecharCarrinho() {
+    $("painel-carrinho").classList.remove("aberto");
+    $("overlay-carrinho").classList.add("oculto");
+}
+
+// Finaliza: monta a mensagem do pedido e abre o WhatsApp.
+function finalizar() {
+    if (totalItens() === 0) return;
+
+    let msg = `Olá, ${CONFIG.nomeLoja}! Quero fazer um pedido:\n\n`;
+    Object.entries(carrinho).forEach(([i, q]) => {
+        const p = CONFIG.produtos[i];
+        msg += `• ${q}x ${p.nome} — ${formatarPreco(p.preco * q)}\n`;
+    });
+    msg += `\n*Total: ${formatarPreco(totalValor())}*`;
+
+    const obs = $("observacoes").value.trim();
+    if (obs) msg += `\n\nObservações: ${obs}`;
+
+    msg += `\n\nChave Pix para pagamento: ${CONFIG.chavePix}`;
+    msg += `\n(Envio o comprovante em seguida.)`;
+
+    const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+    window.open(url, "_blank");
+}
+
+// Inicialização
+$("nome-loja").textContent = CONFIG.nomeLoja;
+montarCatalogo();
+atualizarCarrinho();
+
+$("abrir-carrinho").addEventListener("click", abrirCarrinho);
+$("carrinho-flutuante").addEventListener("click", abrirCarrinho);
+$("fechar-carrinho").addEventListener("click", fecharCarrinho);
+$("overlay-carrinho").addEventListener("click", fecharCarrinho);
+$("finalizar").addEventListener("click", finalizar);
+
+// Link "Pedido" do menu abre o carrinho
+$("link-pedido").addEventListener("click", (e) => {
+    e.preventDefault();
+    abrirCarrinho();
+});

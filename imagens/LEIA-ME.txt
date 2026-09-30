@@ -1,0 +1,19 @@
+COMO COLOCAR AS FOTOS DOS PRODUTOS
+===================================
+
+1. Salve as fotos que a Vera mandar DENTRO desta pasta (imagens).
+
+2. Use nomes SIMPLES nos arquivos: sem espaço, sem acento.
+   Exemplos bons:  brigadeiro.jpg   bolo-pote.jpg   torta-limao.jpg
+   Exemplos ruins: Brigadeiro Gourmet.jpg   torta de limão.png
+
+3. No arquivo app.js (na lista "produtos"), o campo "imagem" deve
+   apontar para o arquivo, assim:
+       imagem: "imagens/brigadeiro.jpg"
+
+4. Formatos aceitos: .jpg, .jpeg, .png, .webp
+
+5. Dica: fotos quadradas ou na horizontal ficam melhores no catálogo.
+
+Enquanto não houver a foto real, o sistema mostra uma imagem cinza
+de "Foto do produto" no lugar (não quebra o layout).
