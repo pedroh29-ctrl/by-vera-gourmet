@@ -591,3 +591,20 @@ html {
 .lista-horarios .fechado strong {
     color: #c0392b;
 }
+
+/* -----------------------------------------------------------------------
+   Esconde o selo flutuante "Powered by Netlify"
+   ----------------------------------------------------------------------- */
+
+#netlify-badge,
+.netlify-badge,
+a[href*="netlify.com"][class*="badge"],
+[id^="netlify"],
+[class*="netlify-hud"],
+[data-nf-variant],
+[data-netlify-site-id] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}

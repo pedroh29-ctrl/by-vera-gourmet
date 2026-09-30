@@ -273,3 +273,23 @@ $("link-pedido").addEventListener("click", (e) => {
     e.preventDefault();
     abrirCarrinho();
 });
+
+// Remove o selo flutuante "Powered by Netlify" (injetado pelo host).
+(function removerBadgeNetlify() {
+    function limpar() {
+        // Procura por links/elementos do badge do Netlify e remove.
+        document.querySelectorAll('a[href*="netlify.com"], [data-nf-variant], [class*="netlify"], [id*="netlify"]').forEach((el) => {
+            const txt = (el.textContent || "").toLowerCase();
+            if (txt.includes("netlify") || el.hasAttribute("data-nf-variant")) {
+                // Remove o elemento e seus contêineres flutuantes.
+                const alvo = el.closest("div,aside,section") || el;
+                alvo.remove();
+            }
+        });
+    }
+    limpar();
+    // O badge entra depois do carregamento, então observamos o DOM por um tempo.
+    const obs = new MutationObserver(limpar);
+    obs.observe(document.documentElement, { childList: true, subtree: true });
+    setTimeout(() => obs.disconnect(), 15000);
+})();
