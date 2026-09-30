@@ -159,6 +159,7 @@ function montarCatalogo() {
                 </div>
             `;
             card.querySelector(".btn-add").addEventListener("click", () => adicionar(i));
+            card.querySelector(".produto-imagem").addEventListener("click", () => abrirLightbox(p));
             grade.appendChild(card);
         });
 
@@ -272,6 +273,30 @@ $("finalizar").addEventListener("click", finalizar);
 $("link-pedido").addEventListener("click", (e) => {
     e.preventDefault();
     abrirCarrinho();
+});
+
+// ===================== Lightbox (foto ampliada) =====================
+function abrirLightbox(produto) {
+    const lb = $("lightbox");
+    const img = $("lightbox-img");
+    img.src = produto.imagem;
+    img.alt = produto.nome;
+    $("lightbox-legenda").textContent = produto.nome;
+    lb.classList.remove("oculto");
+}
+
+function fecharLightbox() {
+    $("lightbox").classList.add("oculto");
+    $("lightbox-img").src = "";
+}
+
+// Clicar no fundo escuro ou no X fecha
+$("lightbox").addEventListener("click", (e) => {
+    if (e.target.id === "lightbox" || e.target.id === "lightbox-fechar") fecharLightbox();
+});
+// Tecla ESC também fecha
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") fecharLightbox();
 });
 
 // Remove o selo flutuante "Powered by Netlify" (injetado pelo host).
