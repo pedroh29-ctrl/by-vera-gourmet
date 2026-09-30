@@ -103,8 +103,15 @@ const CONFIG = {
 // ================================================================
 
 // Avisos exibidos abaixo do título de cada categoria (opcional).
+// Cada aviso tem um título e uma lista de itens (com emoji + texto).
 const AVISOS_CATEGORIA = {
-    "Bolos": "⏳ Os bolos devem ser encomendados com 48h de antecedência. Os recheios dos bolos estruturados são combinados com o cliente."
+    "Bolos": {
+        titulo: "Informações importantes",
+        itens: [
+            { icone: "⏳", texto: "Encomende com <strong>48h de antecedência</strong>." },
+            { icone: "🎂", texto: "Recheios dos bolos estruturados são <strong>combinados com o cliente</strong>." }
+        ]
+    }
 };
 
 const $ = (id) => document.getElementById(id);
@@ -144,11 +151,18 @@ function montarCatalogo() {
         catalogo.appendChild(titulo);
 
         // Aviso da categoria (ex: encomenda com antecedência)
-        if (AVISOS_CATEGORIA[cat]) {
-            const aviso = document.createElement("p");
-            aviso.className = "categoria-aviso";
-            aviso.textContent = AVISOS_CATEGORIA[cat];
-            catalogo.appendChild(aviso);
+        const aviso = AVISOS_CATEGORIA[cat];
+        if (aviso) {
+            const box = document.createElement("div");
+            box.className = "categoria-aviso";
+            const itensHtml = aviso.itens.map((it) =>
+                `<li><span class="aviso-icone">${it.icone}</span><span>${it.texto}</span></li>`
+            ).join("");
+            box.innerHTML = `
+                <p class="aviso-titulo">${aviso.titulo}</p>
+                <ul class="aviso-lista">${itensHtml}</ul>
+            `;
+            catalogo.appendChild(box);
         }
 
         // Grade de produtos da categoria
