@@ -99,13 +99,6 @@ const CONFIG = {
         },
         {
             categoria: "Crostine",
-            nome: "Crostine de Tapioca",
-            descricao: "Crocante crostine de tapioca artesanal com ervas. Embalagem de 70g.",
-            preco: 19.90,
-            imagem: "imagens/WhatsApp Image 2026-09-30 at 6.12.51 PM.jpeg"
-        },
-        {
-            categoria: "Crostine",
             nome: "Crostine de Tapioca Parmesão",
             descricao: "Crocante crostine de tapioca artesanal com parmesão e ervas. Ótimo acompanhamento para guacamole, patês e molhos. Embalagem de 70g.",
             preco: 19.90,
