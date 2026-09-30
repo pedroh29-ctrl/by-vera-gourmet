@@ -107,7 +107,7 @@ const CONFIG = {
         {
             categoria: "Crostine",
             nome: "Crostine de Tapioca de Parmesão",
-            descricao: "Crocante crostine de tapioca artesanal com parmesão e ervas. Embalagem de 70g.",
+            descricao: "Crocante crostine de tapioca artesanal com parmesão e ervas. Acompanha guacamole. Embalagem de 70g.",
             preco: 19.90,
             imagem: "imagens/WhatsApp Image 2026-09-30 at 6.12.59 PM.jpeg"
         }
