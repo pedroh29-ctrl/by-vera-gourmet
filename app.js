@@ -92,8 +92,8 @@ const CONFIG = {
         },
         {
             categoria: "Velas Comestíveis",
-            nome: "Vela Comestível de Manteiga",
-            descricao: "Vela comestível de manteiga com ervas, servida com pães, torradas, queijos, azeitonas e frios. Mais que uma vela, é uma experiência.",
+            nome: "Vela Comestível de Manteiga Temperada",
+            descricao: "Vela comestível de manteiga temperada com ervas, servida com pães, torradas, queijos, azeitonas e frios. Mais que uma vela, é uma experiência.",
             preco: 26.00,
             imagem: "imagens/WhatsApp Image 2026-09-29 at 10.30.31 PM.jpeg"
         }
