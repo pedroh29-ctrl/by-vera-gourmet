@@ -605,6 +605,34 @@ html {
     background: var(--cor-escura);
 }
 
+.btn-instagram {
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.7rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: opacity 0.15s;
+}
+
+.btn-instagram:hover {
+    opacity: 0.9;
+}
+
+.rodape-insta {
+    color: var(--cor-escura);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.rodape-insta:hover {
+    text-decoration: underline;
+}
+
 .lista-horarios {
     list-style: none;
 }
