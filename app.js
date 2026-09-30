@@ -24,28 +24,28 @@ const CONFIG = {
             categoria: "Bolos",
             nome: "Curd de Limão Siciliano",
             descricao: "Bolo de limão siciliano recheado com ganache de chocolate nobre branco e coberto com um delicioso curd de limão siciliano. Decorado com frutas. Peso 1,8 kg. Serve 12 pessoas.",
-            preco: 120.00,
+            preco: 180.00,
             imagem: "imagens/WhatsApp Image 2026-09-29 at 8.40.08 PM (1).jpeg"
         },
         {
             categoria: "Bolos",
             nome: "Bolo de Fubá com Glacê Real",
             descricao: "Bolo de fubá caseiro coberto com glacê real.",
-            preco: 75.00,
+            preco: 98.00,
             imagem: "imagens/WhatsApp Image 2026-09-29 at 8.40.07 PM (1).jpeg"
         },
         {
             categoria: "Bolos",
             nome: "Bolos Caseiros Simples e Decorados",
             descricao: "Bolos caseiros de diferentes sabores (a combinar), pintados com renda ou flores em glacê real ou buttercream. Podem levar glacê marmorizado. Vários tamanhos, pesos e estilos. Sob prévia encomenda.",
-            preco: 75.00,
+            preco: 98.00,
             imagem: "imagens/WhatsApp Image 2026-09-29 at 8.40.07 PM (3).jpeg"
         },
         {
             categoria: "Bolos",
             nome: "Bolo Vulcão de Cenoura",
             descricao: "Deliciosa massa de bolo caseiro de cenoura com cobertura de ganache de chocolate. Serve 16 pessoas.",
-            preco: 80.00,
+            preco: 110.00,
             imagem: "imagens/WhatsApp Image 2026-09-29 at 8.40.08 PM.jpeg"
         },
         {
