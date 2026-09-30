@@ -104,7 +104,7 @@ const CONFIG = {
 
 // Avisos exibidos abaixo do título de cada categoria (opcional).
 const AVISOS_CATEGORIA = {
-    "Bolos": "⏳ Os bolos devem ser encomendados com 48h de antecedência."
+    "Bolos": "⏳ Os bolos devem ser encomendados com 48h de antecedência. Os recheios dos bolos estruturados são combinados com o cliente."
 };
 
 const $ = (id) => document.getElementById(id);
