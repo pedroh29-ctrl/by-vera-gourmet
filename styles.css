@@ -731,3 +731,74 @@ a[href*="netlify.com"][class*="badge"],
 .lightbox-fechar:hover {
     background: #fff;
 }
+
+/* -----------------------------------------------------------------------
+   Tela de agradecimento + pedido de avaliação (após finalizar pedido)
+   ----------------------------------------------------------------------- */
+
+.modal-obrigado {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 45;
+    background: var(--cartao);
+    border-radius: var(--raio);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    padding: 2rem 1.75rem;
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+}
+
+.obrigado-icone {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.modal-obrigado h3 {
+    font-size: 1.4rem;
+    color: var(--cor-escura);
+    margin-bottom: 0.6rem;
+}
+
+.modal-obrigado p {
+    color: var(--texto);
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+.obrigado-aval {
+    color: var(--texto-suave) !important;
+    font-size: 0.9rem !important;
+}
+
+.btn-avaliar {
+    display: inline-block;
+    margin-top: 0.5rem;
+    background: #f6b100;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.8rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: background 0.15s, transform 0.15s;
+}
+
+.btn-avaliar:hover {
+    background: #d99a00;
+    transform: translateY(-2px);
+}
+
+.fechar-obrigado {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.9rem;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--texto-suave);
+}

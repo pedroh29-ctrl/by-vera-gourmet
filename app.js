@@ -19,6 +19,9 @@ const CONFIG = {
     nomeLoja: "By Vera Gourmet",
     whatsapp: "5551984245442",              // WhatsApp da Vera
     chavePix: "folhadeoutuno@hotmail.com",  // Pix da Vera
+    // Link de avaliação do Google. Quando a Vera enviar o link do perfil
+    // dela, cole aqui entre as aspas. Enquanto vazio, usa a busca pelo nome.
+    linkAvaliacao: "",
     produtos: [
         {
             categoria: "Bolos",
@@ -291,6 +294,27 @@ function finalizar() {
 
     const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
+
+    // Mostra a tela de agradecimento com o pedido de avaliação.
+    mostrarObrigado();
+}
+
+// Link de avaliação: usa o da CONFIG; se vazio, cai numa busca pelo nome da loja.
+function linkAvaliacao() {
+    if (CONFIG.linkAvaliacao) return CONFIG.linkAvaliacao;
+    const busca = encodeURIComponent(CONFIG.nomeLoja + " avaliações");
+    return `https://www.google.com/search?q=${busca}`;
+}
+
+function mostrarObrigado() {
+    $("btn-avaliar").href = linkAvaliacao();
+    $("modal-obrigado").classList.remove("oculto");
+    $("overlay-obrigado").classList.remove("oculto");
+}
+
+function fecharObrigado() {
+    $("modal-obrigado").classList.add("oculto");
+    $("overlay-obrigado").classList.add("oculto");
 }
 
 // Inicialização
@@ -309,6 +333,10 @@ $("link-pedido").addEventListener("click", (e) => {
     e.preventDefault();
     abrirCarrinho();
 });
+
+// Fechar a tela de agradecimento
+$("fechar-obrigado").addEventListener("click", fecharObrigado);
+$("overlay-obrigado").addEventListener("click", fecharObrigado);
 
 // ===================== Lightbox (foto ampliada) =====================
 function abrirLightbox(produto) {
