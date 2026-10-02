@@ -19,9 +19,8 @@ const CONFIG = {
     nomeLoja: "By Vera Gourmet",
     whatsapp: "5551984245442",              // WhatsApp da Vera
     chavePix: "folhadeoutuno@hotmail.com",  // Pix da Vera
-    // Link de avaliação do Google. Quando a Vera enviar o link do perfil
-    // dela, cole aqui entre as aspas. Enquanto vazio, usa a busca pelo nome.
-    linkAvaliacao: "",
+    // Link do perfil da loja no Google (onde o cliente avalia).
+    linkAvaliacao: "https://www.google.com/maps/place/By+Vera+Gourmet+Delicias+Artesanais/@-30.1158487,-51.063674,17z/data=!3m1!4b1!4m6!3m5!1s0x43a58e550aebb55f:0x1f579b23d9219bf1!8m2!3d-30.1158534!4d-51.0610991!16s%2Fg%2F11s16pd4b8",
     produtos: [
         {
             categoria: "Bolos",
